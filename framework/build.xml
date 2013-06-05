@@ -1,0 +1,35 @@
+<project name="framework" basedir="." default="war">
+
+    <property name="lib.dir" value="./lib/"/>
+    <property name="src" value="${basedir}/src/"/>
+    <property name="build" value="build"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${build}/classes"/>
+        <copy todir="${build}">
+            <fileset dir="${basedir}/">
+                <include name="data/**"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${build}/classes" classpathref="classpath"
+               encoding="UTF-8"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <!-- Build the jar file -->
+        <jar basedir="${build}/classes" destfile="${basedir}/framework.jar"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete file="${basedir}/framework.jar"/>
+    </target>
+</project>

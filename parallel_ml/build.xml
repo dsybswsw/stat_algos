@@ -1,0 +1,118 @@
+<project name="mahout" basedir="." default="jar">
+
+    <property name="lib.dir" value="./lib/"/>
+    <property name="src" value="${basedir}/src/"/>
+    <property name="build" value="build"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+
+    <pathconvert property="jarclasspath" pathsep=" ">
+      <path refid="classpath" />
+      <mapper>     
+        <chainedmapper>      
+          <flattenmapper />      
+          <globmapper from="*" to="${lib.dir}*" />      
+        </chainedmapper>     
+      </mapper>
+    </pathconvert>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${build}/classes"/>
+        <copy todir="${build}">
+            <fileset dir="${basedir}/">
+                <include name="data/**"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${build}/classes" classpathref="classpath"
+               encoding="UTF-8"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <!-- Build the jar file -->
+        <jar basedir="${build}/classes" destfile="${basedir}/parallel_ml.jar">
+          <zipfileset src="${basedir}/lib/uncommons-maths-1.2.2.jar"/>
+          <zipfileset src="${basedir}/lib/commons-cli-2.0-mahout.jar"/>
+          <zipfileset src="${basedir}/lib/bson-2.5.jar"/>
+          <zipfileset src="${basedir}/lib/commons-cli-1.2.jar"/>
+          <zipfileset src="${basedir}/lib/commons-compress-1.2.jar"/>
+          <zipfileset src="${basedir}/lib/slf4j-jcl-1.6.1.jar"/>
+          <zipfileset src="${basedir}/lib/solr-commons-csv-3.5.0.jar"/>
+          <zipfileset src="${basedir}/lib/stringtemplate-3.2.jar"/>
+          <zipfileset src="${basedir}/lib/commons-math-2.2.jar"/>
+          <zipfileset src="${basedir}/lib/mongo-java-driver-2.5.jar"/>
+          <zipfileset src="${basedir}/lib/cassandra-all-0.8.1.jar"/>
+          <zipfileset src="${basedir}/lib/slf4j-log4j12-1.6.1.jar"/>
+          <zipfileset src="${basedir}/lib/commons-logging-1.1.1.jar"/>
+          <zipfileset src="${basedir}/lib/commons-beanutils-1.7.0.jar"/>
+          <zipfileset src="${basedir}/lib/xpp3_min-1.1.4c.jar"/>
+          <zipfileset src="${basedir}/lib/servlet-api-2.5-20081211.jar"/>
+          <zipfileset src="${basedir}/lib/antlr-3.2.jar"/>
+          <zipfileset src="${basedir}/lib/commons-codec-1.4.jar"/>
+          <zipfileset src="${basedir}/lib/objenesis-1.2.jar"/>
+          <zipfileset src="${basedir}/lib/antlr-2.7.7.jar"/>
+          <zipfileset src="${basedir}/lib/cglib-nodep-2.2.jar"/>
+          <zipfileset src="${basedir}/lib/mahout-integration-0.7.jar"/>
+          <zipfileset src="${basedir}/lib/avro-1.4.0-cassandra-1.jar"/>
+          <zipfileset src="${basedir}/lib/slf4j-api-1.6.1.jar"/>
+          <zipfileset src="${basedir}/lib/cassandra-thrift-0.8.1.jar"/>
+          <zipfileset src="${basedir}/lib/commons-pool-1.5.6.jar"/>
+          <zipfileset src="${basedir}/lib/commons-httpclient-3.0.1.jar"/>
+          <zipfileset src="${basedir}/lib/commons-io-2.0.1.jar"/>
+          <zipfileset src="${basedir}/lib/mahout-math-0.7.jar"/>
+          <zipfileset src="${basedir}/lib/xml-apis-1.3.04.jar"/>
+          <zipfileset src="${basedir}/lib/commons-lang-2.6.jar"/>
+          <zipfileset src="${basedir}/lib/antlr-runtime-3.2.jar"/>
+          <zipfileset src="${basedir}/lib/speed4j-0.9.jar"/>
+          <zipfileset src="${basedir}/lib/mahout-core-0.7.jar"/>
+          <zipfileset src="${basedir}/lib/concurrentlinkedhashmap-lru-1.1.jar"/>
+          <zipfileset src="${basedir}/lib/easymock-3.0.jar"/>
+          <zipfileset src="${basedir}/lib/guava-r09.jar"/>
+          <zipfileset src="${basedir}/lib/hector-core-0.8.0-2.jar"/>
+          <zipfileset src="${basedir}/lib/high-scale-lib-1.1.2.jar"/>
+          <zipfileset src="${basedir}/lib/httpclient-4.0.1.jar"/>
+          <zipfileset src="${basedir}/lib/httpcore-4.0.1.jar"/>
+          <zipfileset src="${basedir}/lib/icu4j-4.8.1.1.jar"/>
+          <zipfileset src="${basedir}/lib/jackson-core-asl-1.8.2.jar"/>
+          <zipfileset src="${basedir}/lib/jackson-mapper-asl-1.8.2.jar"/>
+          <zipfileset src="${basedir}/lib/jakarta-regexp-1.4.jar"/>
+          <zipfileset src="${basedir}/lib/jamm-0.2.2.jar"/>
+          <zipfileset src="${basedir}/lib/jcommon-1.0.12.jar"/>
+          <zipfileset src="${basedir}/lib/jetty-6.1.22.jar"/>
+          <zipfileset src="${basedir}/lib/jetty-util-6.1.22.jar"/>
+          <zipfileset src="${basedir}/lib/jline-0.9.94.jar"/>
+          <zipfileset src="${basedir}/lib/json-simple-1.1.jar"/>
+          <zipfileset src="${basedir}/lib/jul-to-slf4j-1.6.1.jar"/>
+          <zipfileset src="${basedir}/lib/junit-4.8.2.jar"/>
+          <zipfileset src="${basedir}/lib/libthrift-0.6.1.jar"/>
+          <zipfileset src="${basedir}/lib/log4j-1.2.16.jar"/>
+          <zipfileset src="${basedir}/lib/lucene-analyzers-3.6.0.jar"/>
+          <zipfileset src="${basedir}/lib/lucene-benchmark-3.6.0.jar"/>
+          <zipfileset src="${basedir}/lib/lucene-core-3.6.0.jar"/>
+          <zipfileset src="${basedir}/lib/lucene-facet-3.6.0.jar"/>
+          <zipfileset src="${basedir}/lib/lucene-highlighter-3.6.0.jar"/>
+          <zipfileset src="${basedir}/lib/lucene-memory-3.6.0.jar"/>
+          <zipfileset src="${basedir}/lib/lucene-queries-3.6.0.jar"/>
+          <zipfileset src="${basedir}/lib/commons-configuration-1.6.jar"/>
+          <zipfileset src="${basedir}/lib/snakeyaml-1.6.jar"/>
+          <zipfileset src="${basedir}/lib/commons-dbcp-1.4.jar"/>
+          <zipfileset src="${basedir}/lib/commons-collections-3.2.1.jar"/>
+          <zipfileset src="${basedir}/lib/hadoop-core-1.1.2.jar"/>
+          <zipfileset src="${basedir}/lib/commons-digester-1.8.jar"/>
+          <zipfileset src="${basedir}/lib/xercesImpl-2.9.1.jar"/>
+          <zipfileset src="${basedir}/lib/xstream-1.3.1.jar"/>
+          <zipfileset src="${basedir}/lib/uuid-3.2.0.jar"/>
+          <zipfileset src="${basedir}/lib/commons-beanutils-core-1.8.0.jar"/>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete file="${basedir}/framework.jar"/>
+    </target>
+</project>
