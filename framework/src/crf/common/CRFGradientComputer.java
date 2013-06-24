@@ -2,10 +2,9 @@
 package crf.common;
 
 import crf.features.FeatExtractor;
-import inference.GradientComputer;
-import crf.utils.CrfIndexer;
 import crf.utils.CrfTrainData;
 import crf.utils.TrainDataCalculator;
+import inference.GradientComputer;
 
 /**
  * @author Shiwei Wu

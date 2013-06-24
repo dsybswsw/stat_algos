@@ -1,11 +1,11 @@
 package utils.utils.crf;
 
-import crf.utils.CrfIndexer;
 import crf.features.FeatExtractor;
 import crf.features.TaggedSentence;
-import utils.common.Pair;
+import crf.utils.CrfIndexer;
 import crf.utils.CrfTrainData;
 import crf.utils.TrainDataCalculator;
+import utils.common.Pair;
 
 import java.util.*;
 

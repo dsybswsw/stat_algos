@@ -1,7 +1,6 @@
 // Copyright (c) 2013. Shiwei Wu reserved.
 package crf.common;
 
-import crf.common.CrfTrainer;
 import crf.features.TaggedSentence;
 
 import java.util.ArrayList;

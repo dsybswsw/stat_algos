@@ -85,16 +85,6 @@ public class FactorGraphInference {
 		// Message oldMessage = factorNode.getMessage(variable);
 		logger.info("message information is " + message.toString());
 		variable.setSendMessage(factorNode, message);
-		/*if (hipCount > HOT_LIMIT || isConverged(oldMessage, message)) {
-			return ;
-		}
-
-		for (Node nextVar : factorNode.getNeighbors()) {
-			if (nextVar.equals(variable))
-				continue;
-			// implement a strategy to send message.
-			sendToVariableNodeMessage(factorNode, nextVar, hipCount + 1);
-		}*/
 	}
 
 	public void sendToVariableNodeMessage(Node factorNode, Node variable, int hipCount) {

@@ -7,7 +7,10 @@ import crf.utils.UniStateSlot;
 import crf.utils.ViterbiStateSlot;
 import utils.common.CollectionUtil;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 
 /**

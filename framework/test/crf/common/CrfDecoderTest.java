@@ -4,7 +4,10 @@ package crf.common;
 import crf.features.FeatExtractor;
 import crf.features.TaggedSentence;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * User: dawei, dsybswsw@gmail.com

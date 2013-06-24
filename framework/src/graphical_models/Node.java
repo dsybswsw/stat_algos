@@ -26,6 +26,8 @@ public abstract class Node {
 	}
 
 	public void addNeighbor(Node node) {
+		if (neighbors.contains(node))
+			return;
 		neighbors.add(node);
 	}
 

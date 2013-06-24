@@ -1,10 +1,10 @@
 // Copyright (c) 2013. Shiwei Wu reserved.
 package forward_backward;
 
-import utils.common.CollectionUtil;
 import crf.utils.BiStateSlot;
 import crf.utils.StateTransformer;
 import crf.utils.UniStateSlot;
+import utils.common.CollectionUtil;
 
 import java.util.List;
 import java.util.Set;

@@ -1,12 +1,12 @@
 package utils.utils.crf;
 
 import crf.common.CRFModel;
-import crf.utils.CrfIndexer;
 import crf.features.FeatExtractor;
 import crf.features.TaggedSentence;
+import crf.utils.CRFStateTransformer;
+import crf.utils.CrfIndexer;
 import forward_backward.FBStateCalculator;
 import utils.common.CollectionUtil;
-import crf.utils.CRFStateTransformer;
 
 import java.util.*;
 

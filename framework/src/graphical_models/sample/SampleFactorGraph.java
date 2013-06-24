@@ -133,7 +133,5 @@ public class SampleFactorGraph extends FactorGraph {
 			((VariableNode) y2).setJointProb(i, prob);
 			logger.info("state " + i + " probability is " + prob);
 		}
-
-		// logger.info("var x prob is " + var_x.getJointProb(0));
 	}
 }
