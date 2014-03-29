@@ -54,6 +54,9 @@ public class DataNode {
 	}
 
 	public List<DataArc> getNeighbors(int type) {
+        if (typeArcs.get(type) == null) {
+            return new ArrayList<DataArc>();
+        }
 		return typeArcs.get(type);
 	}
 

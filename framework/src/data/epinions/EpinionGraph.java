@@ -12,17 +12,17 @@ import java.util.Set;
  * User: dawei, dsybswsw@gmail.com
  * Date: 6/18/13
  */
-public class CoAuthorGraph extends DataGraph{
+public class EpinionGraph extends DataGraph{
 	private Map<String, DataNode> userNodes;
 	private Map<String, DataNode> articles;
 
-	public CoAuthorGraph() {
+	public EpinionGraph() {
 		userNodes = new HashMap<String, DataNode>();
 		articles = new HashMap<String, DataNode>();
 	}
 
 	public DataNode getUserNode(String userIndex) {
-		return userNodes.get(userIndex);
+        return userNodes.get(userIndex);
 	}
 
 	public DataNode getArticleNode(String articleIndex) {

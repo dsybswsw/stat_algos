@@ -13,15 +13,15 @@ import java.util.logging.Logger;
  * User: dawei, dsybswsw@gmail.com
  * Date: 6/19/13
  */
-public class CoAuthorBuilder {
-	private CoAuthorGraph epinionGraph;
+public class EpinionBuilder {
+	private EpinionGraph epinionGraph;
 
 	private final static int LOG_MARGGIN = 10000;
 
-	private final static Logger logger = Logger.getLogger(CoAuthorBuilder.class.getName());
+	private final static Logger logger = Logger.getLogger(EpinionBuilder.class.getName());
 
-	public CoAuthorBuilder() {
-		epinionGraph = new CoAuthorGraph();
+	public EpinionBuilder() {
+		epinionGraph = new EpinionGraph();
 	}
 
 	public void addFriendshipRelations(String friendshipDataFile) throws IOException {
@@ -39,8 +39,11 @@ public class CoAuthorBuilder {
 			DataNode startNode = epinionGraph.getUserNode(startIndex);
 			DataNode endNode = epinionGraph.getUserNode(endIndex);;
 
-			DataArc arc = new DataArc(startNode, endNode, new DataArcContent(EpinionConstants.FRIENDSHIP, arcValue));
+			DataArc arc = new DataArc(startNode, endNode, new DataArcContent(EpinionConstants.FRIENDSHIP_OUT, arcValue));
 			startNode.addNeighbour(arc);
+            DataArc antiArc = new DataArc(endNode, startNode, new DataArcContent(EpinionConstants.FRIENDSHIP_IN, arcValue));
+            endNode.addNeighbour(antiArc);
+
 			++index;
 			if (index % LOG_MARGGIN == 0) {
 				logger.info("load friendship network in line " + index);
@@ -99,7 +102,7 @@ public class CoAuthorBuilder {
 		logger.info("Finish load file " + ratingFile);
 	}
 
-	public CoAuthorGraph getEpinionGraph() {
+	public EpinionGraph getEpinionGraph() {
 		return epinionGraph;
 	}
 
