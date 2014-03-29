@@ -13,14 +13,14 @@ import java.io.IOException;
 public class DataTest {
 	public static void main(String[] args) throws IOException {
 		EpinionsDataSet epinionsDataSet = EpinionsDataSet.getInstance();
-		EpinionBuilder graphBuilder = new EpinionBuilder();
+		CoAuthorBuilder graphBuilder = new CoAuthorBuilder();
 		String userFilePath = epinionsDataSet.getUserRelationFile();
 		// String authorArticlePath = epinionsDataSet.getAuthorArticleFile();
 		// String ratingPath = epinionsDataSet.getRatingsFile();
 		graphBuilder.addFriendshipRelations(userFilePath);
 		// graphBuilder.addAuthorRelations(authorArticlePath);
 		// graphBuilder.addRatingRelations(ratingPath);
-		EpinionGraph epinionGraph = graphBuilder.getEpinionGraph();
+		CoAuthorGraph epinionGraph = graphBuilder.getEpinionGraph();
 		DataNode node = epinionGraph.getUserNode("209227652");
 		System.out.println("node index is " + node.getIndex());
 		System.out.println("output the neighbors: " );

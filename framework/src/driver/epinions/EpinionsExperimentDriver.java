@@ -1,12 +1,7 @@
 package driver.epinions;
 
-import data.DataFactorGraphTransformer;
-import data.DataGraph;
-import data.DataNode;
-import data.epinions.EpinionBuilder;
-import data.epinions.EpinionGraph;
-import graphical_models.FactorGraph;
-import graphical_models.FactorGraphInference;
+import data.epinions.CoAuthorBuilder;
+import data.epinions.CoAuthorGraph;
 
 import java.io.IOException;
 
@@ -17,14 +12,14 @@ import java.io.IOException;
 public class EpinionsExperimentDriver {
 	public static void main(String[] args) throws IOException {
 		EpinionsDataSet epinionsDataSet = EpinionsDataSet.getInstance();
-		EpinionBuilder graphBuilder = new EpinionBuilder();
+		CoAuthorBuilder graphBuilder = new CoAuthorBuilder();
 		String userFilePath = epinionsDataSet.getUserRelationFile();
 		String authorArticlePath = epinionsDataSet.getAuthorArticleFile();
 		String ratingPath = epinionsDataSet.getRatingsFile();
 		graphBuilder.addFriendshipRelations(userFilePath);
 		graphBuilder.addAuthorRelations(authorArticlePath);
 		graphBuilder.addRatingRelations(ratingPath);
-		EpinionGraph epinionGraph = graphBuilder.getEpinionGraph();
+		CoAuthorGraph epinionGraph = graphBuilder.getEpinionGraph();
 
 		// DataFactorGraphTransformer dataTransformer = new DataFactorGraphTransformer(epinionGraph);
 		// FactorGraph factorGraph = dataTransformer.getFactorGraph();

@@ -1,7 +1,5 @@
 package data;
 
-import data.epinions.EpinionGraph;
-
 import java.util.Iterator;
 
 /**
@@ -9,12 +7,12 @@ import java.util.Iterator;
  * Date: 6/19/13
  */
 public class DataNodeIterator implements Iterator<DataNode> {
-	private EpinionGraph epinionGraph;
+	private DataGraph graph;
 	private Iterator<String> indexIterator;
 
-	public DataNodeIterator(EpinionGraph epinionGraph) {
-		this.epinionGraph = epinionGraph;
-		this.indexIterator = epinionGraph.getUserIndexes().iterator();
+	public DataNodeIterator(DataGraph graph) {
+		this.graph = graph;
+		this.indexIterator = graph.getUserNodes().iterator();
 	}
 
 	@Override
@@ -24,7 +22,7 @@ public class DataNodeIterator implements Iterator<DataNode> {
 
 	@Override
 	public DataNode next() {
-		return epinionGraph.getUserNode(indexIterator.next());
+		return graph.getUserNode(indexIterator.next());
 	}
 
 	@Override
