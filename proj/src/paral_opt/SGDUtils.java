@@ -19,6 +19,8 @@ import java.io.*;
 public class SGDUtils {
     public final static String PARAM_NUM = "PARAM_NUM";
     public final static String PARAMS = "PARAMS";
+    public final static String CLASS_NUM = "CLASS_NUM";
+
     
     private final static Logger logger = Logger.getLogger(SGDUtils.class.getName());
 
