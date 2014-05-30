@@ -49,10 +49,7 @@ public class MaxEntMapper extends SGDMapper {
             }
             int id = pair.getFirst() * classNum + y; 
             gradiants[id] = - pair.getSecond() + gd;
-            logger.info("feat val : " + pair.getFirst() + "," + pair.getSecond() + "," + get_val(weights, pairs, 0));
-            logger.info("gradient " + id + " : " + gradiants[id]);
         }
-
         // do normalization.
         logger.info("function value is " + funcVal);
         return funcVal;
